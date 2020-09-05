@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { AllPokemonName, AllNature, allItems } from "./richieste/pokemon";
+import { AllPokemonName, AllNature, allItems } from "./richieste/TutteLeListe";
 import { Aggiungi } from './component/Aggiungi';
 import { NuovoPokemon } from './component/NuovoPokemon';
 
@@ -13,7 +13,7 @@ function App() {
   const [naturePok, setNature] = useState<Risposta>();
   const [items, setItems] = useState<Risposta>([]);
 
-  const [squadraPokemon, setSquadra] = useState<string[]>(['https://pokeapi.co/api/v2/pokemon/1/']);
+  const [squadraPokemon, setSquadra] = useState<string[]>(['https://pokeapi.co/api/v2/pokemon/3/']);
 
   useEffect(() => {
     const prendiNomi = async () => {
@@ -33,21 +33,30 @@ function App() {
 
   const rimuoviPokemon = (index: number) => {
     setSquadra(state => {
+
       let copy = [...state];
       copy = [...copy.slice(0, index), ...copy.slice(index + 1, copy.length)];
       return copy;
     })
   }
 
-
   return (
     <div>
-      {nomiPok && naturePok && items.length > 0 && squadraPokemon.length < 6 ?
+      <div className={style.header}>
         <div>
-          <Aggiungi nomi={nomiPok} aggiungi={aggiungiPokemon} />
-
+          <img style={{width: "50px", height:" 50px", marginLeft: "20px"}} src={require('./immagini/Poke_Ball.webp')} />
         </div>
-        : squadraPokemon.length < 6 ? <div>Loading</div> : <div>La tua squadra e' piena</div>}
+
+        <div>
+          <h2 style={{color: "white"}}>Pokemon Team Builder</h2>
+        </div>
+
+        <div style={{textAlign: "center"}}>
+          {nomiPok && naturePok && items.length > 0 && squadraPokemon.length < 6 ?
+            <Aggiungi nomi={nomiPok} aggiungi={aggiungiPokemon} />
+            : squadraPokemon.length < 6 ? <div>Loading</div> : <div>La tua squadra e' piena</div>}
+        </div>
+      </div>
 
       {
         nomiPok && naturePok && items.length > 0 ?

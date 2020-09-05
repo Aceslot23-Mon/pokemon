@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    margin: 10px;
+    margin: -10px 10px;
     place-items: center;
     text-align: center;
 }
@@ -13,7 +13,7 @@
     padding: 20px;
 }
 
-img {
+.img {
     width: 200px;
     height: 200px;
     background-image: url(../immagini/Pokeball.png);
@@ -21,12 +21,24 @@ img {
     background-repeat: no-repeat;
 }
 
-select {
-    width: 38%;
-    margin: 2px 5px;
-}
-
 #buttonRimuovi {
     color: red;
     width: 80%;
+}
+
+.quattroItem {
+    display: grid;
+    row-gap: 5px;
+    grid-template-columns: 1.5fr 1fr;
+}
+
+.loading {
+    animation-name: loadingBall;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes loadingBall {
+    from {rotate: 20deg;}
+    to {rotate: 380deg;}
 }

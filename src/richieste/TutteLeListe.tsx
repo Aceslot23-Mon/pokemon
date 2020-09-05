@@ -53,7 +53,8 @@ export const allItems = async () => {
         }).then((response: AxiosResponse<any>) => response.data)
             .then(data => {
                 const { items } = data;
-                const itemGiusti = trasformaBene(items, "items");
+                let itemGiusti = trasformaBene(items, "items");
+                itemGiusti.unshift({name: "Strumenti", url: ""});
                 return itemGiusti;
             });
 
