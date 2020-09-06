@@ -53,3 +53,5 @@ disporli a 3x2 come una vera squadra
 1. All'inzio prendo tutti i nomi dei pokemon gli strumenti e le nature
 2. Metto tutti i pokemon in un option
 3. Ogni volta che ne aggiungo uno faccio un form con abilita mosse etc...
+
+gg
